@@ -28,24 +28,28 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 import uk.co.caprica.vlcj.player.embedded.videosurface.CanvasVideoSurface;
 import uk.co.caprica.vlcj.player.embedded.videosurface.windows.WindowsVideoSurfaceAdapter;
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
+import uk.co.caprica.vlcj.runtime.x.LibXUtil;
 
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+import com.sun.jna.NativeLibrary;
+
 public class PlateMonitorUI {
 
 	protected Shell shell;
-	private Text text;
+	private Text txta;
 	private Text text_1;
-	private Text text_2;
+	private Text txta_1;
 	private Text text_3;
 	private Text text_4;
 	private Text text_5;
-	private Text text_6;
+	private Text txtPanmingzhi;
 	private Text text_7;
-	private Text text_8;
+	private Text txta_2;
 	private Text text_9;
 	private Text text_10;
 	private Text text_11;
@@ -58,6 +62,11 @@ public class PlateMonitorUI {
 	private Composite composite_12;
 	
 	private Font defaultFont = SWTResourceManager.getFont("微软雅黑", 12, SWT.NORMAL);
+	
+	static{
+		NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(),System.getProperty("user.dir") + "/native/vlc/lib");
+		LibXUtil.initialise();
+	}
 
 	/**
 	 * Launch the application.
@@ -152,9 +161,12 @@ public class PlateMonitorUI {
 		label_2.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		label_2.setText("入场车牌");
 		
-		text = new Text(composite_6, SWT.BORDER);
-		text.setFont(defaultFont);
-		text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txta = new Text(composite_6, SWT.BORDER);
+		txta.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txta.setText("鄂A78458");
+		txta.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		txta.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
+		txta.setFont(defaultFont);
 		
 		CLabel lblNewLabel = new CLabel(composite_6, SWT.BORDER);
 		lblNewLabel.setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
@@ -172,11 +184,14 @@ public class PlateMonitorUI {
 		label_3.setText("入场时间");
 		
 		text_1 = new Text(composite_6, SWT.BORDER);
-		text_1.setFont(defaultFont);
 		text_1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		text_1.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		text_1.setText("2015-08-20 11:12:13");
+		text_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
+		text_1.setFont(defaultFont);
 		
 		Composite composite_7 = new Composite(composite, SWT.NONE);
-		composite_7.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		composite_7.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		composite_7.setLayout(new GridLayout(3, false));
 		
 		Label label_4 = new Label(composite_7, SWT.NONE);
@@ -184,9 +199,12 @@ public class PlateMonitorUI {
 		label_4.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		label_4.setText("入场车牌");
 		
-		text_2 = new Text(composite_7, SWT.BORDER);
-		text_2.setFont(defaultFont);
-		text_2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txta_1 = new Text(composite_7, SWT.BORDER);
+		txta_1.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		txta_1.setText("京A85214");
+		txta_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
+		txta_1.setFont(defaultFont);
+		txta_1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
 		CLabel label_5 = new CLabel(composite_7, SWT.BORDER);
 		label_5.setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
@@ -204,6 +222,9 @@ public class PlateMonitorUI {
 		label_6.setText("入场时间");
 		
 		text_3 = new Text(composite_7, SWT.BORDER);
+		text_3.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		text_3.setText("2015-08-20 13:11:13");
+		text_3.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		text_3.setFont(defaultFont);
 		text_3.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
@@ -252,6 +273,9 @@ public class PlateMonitorUI {
 		lblNewLabel_1.setText("总车位数");
 		
 		text_4 = new Text(group, SWT.BORDER);
+		text_4.setText("1000");
+		text_4.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		text_4.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		text_4.setFont(defaultFont);
 		text_4.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
@@ -275,6 +299,9 @@ public class PlateMonitorUI {
 		lblNewLabel_2.setText("剩余车位");
 		
 		text_5 = new Text(group, SWT.BORDER);
+		text_5.setText("804");
+		text_5.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		text_5.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		text_5.setFont(defaultFont);
 		text_5.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
@@ -283,9 +310,12 @@ public class PlateMonitorUI {
 		lblNewLabel_3.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblNewLabel_3.setText("当前值班");
 		
-		text_6 = new Text(group, SWT.BORDER);
-		text_6.setFont(defaultFont);
-		text_6.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txtPanmingzhi = new Text(group, SWT.BORDER);
+		txtPanmingzhi.setText("panmingzhi");
+		txtPanmingzhi.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		txtPanmingzhi.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
+		txtPanmingzhi.setFont(defaultFont);
+		txtPanmingzhi.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
 		Label label_7 = new Label(group, SWT.NONE);
 		label_7.setFont(defaultFont);
@@ -293,6 +323,9 @@ public class PlateMonitorUI {
 		label_7.setText("累计收费");
 		
 		text_7 = new Text(group, SWT.BORDER);
+		text_7.setText("1546.0");
+		text_7.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		text_7.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		text_7.setFont(defaultFont);
 		text_7.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
@@ -308,9 +341,12 @@ public class PlateMonitorUI {
 		label_8.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		label_8.setText("车牌号码");
 		
-		text_8 = new Text(group_1, SWT.BORDER);
-		text_8.setFont(defaultFont);
-		text_8.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txta_2 = new Text(group_1, SWT.BORDER);
+		txta_2.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		txta_2.setText("京A85214");
+		txta_2.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
+		txta_2.setFont(defaultFont);
+		txta_2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
 		Label label_9 = new Label(group_1, SWT.NONE);
 		label_9.setFont(defaultFont);
@@ -318,6 +354,9 @@ public class PlateMonitorUI {
 		label_9.setText("用户名称");
 		
 		text_9 = new Text(group_1, SWT.BORDER);
+		text_9.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		text_9.setText("刘志光");
+		text_9.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		text_9.setFont(defaultFont);
 		text_9.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
@@ -327,6 +366,9 @@ public class PlateMonitorUI {
 		label_14.setText("用户类型");
 		
 		text_14 = new Text(group_1, SWT.BORDER);
+		text_14.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		text_14.setText("月卡");
+		text_14.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		text_14.setFont(defaultFont);
 		text_14.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
@@ -336,6 +378,9 @@ public class PlateMonitorUI {
 		label_10.setText("入场时间");
 		
 		text_10 = new Text(group_1, SWT.BORDER);
+		text_10.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		text_10.setText("2015-08-20 13:11:13");
+		text_10.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		text_10.setFont(defaultFont);
 		text_10.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
@@ -345,6 +390,9 @@ public class PlateMonitorUI {
 		label_11.setText("出场时间");
 		
 		text_11 = new Text(group_1, SWT.BORDER);
+		text_11.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		text_11.setText("2015-08-20 15:15:13");
+		text_11.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		text_11.setFont(defaultFont);
 		text_11.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
@@ -354,6 +402,9 @@ public class PlateMonitorUI {
 		label_12.setText("停车时间");
 		
 		text_12 = new Text(group_1, SWT.BORDER);
+		text_12.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		text_12.setText("02:04:00");
+		text_12.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		text_12.setFont(defaultFont);
 		text_12.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
@@ -363,6 +414,9 @@ public class PlateMonitorUI {
 		label_13.setText("收费金额");
 		
 		text_13 = new Text(group_1, SWT.BORDER);
+		text_13.setForeground(SWTResourceManager.getColor(SWT.COLOR_MAGENTA));
+		text_13.setText("14.0");
+		text_13.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		text_13.setFont(defaultFont);
 		text_13.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
