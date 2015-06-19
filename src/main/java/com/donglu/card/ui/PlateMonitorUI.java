@@ -294,9 +294,9 @@ public class PlateMonitorUI {
 		lblNewLabel_2.setLayoutData(gd_lblNewLabel_2);
 		lblNewLabel_2.setText("时租车数量");
 		
-		text_5 = new Text(group, SWT.NONE);
+		text_5 = new Text(group, SWT.BORDER);
 		text_5.setText("804");
-		text_5.setForeground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_FOREGROUND));
+		text_5.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLUE));
 		text_5.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		text_5.setFont(SWTResourceManager.getFont("微软雅黑", 12, SWT.BOLD));
 		text_5.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -309,9 +309,9 @@ public class PlateMonitorUI {
 			label_8.setFont(SWTResourceManager.getFont("微软雅黑", 12, SWT.BOLD));
 		}
 		{
-			text_6 = new Text(group, SWT.NONE);
+			text_6 = new Text(group, SWT.BORDER);
 			text_6.setText("804");
-			text_6.setForeground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_FOREGROUND));
+			text_6.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLUE));
 			text_6.setFont(SWTResourceManager.getFont("微软雅黑", 12, SWT.BOLD));
 			text_6.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 			text_6.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
